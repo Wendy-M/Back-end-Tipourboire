@@ -1,0 +1,154 @@
+/*Inscription
+  inscription: (req, res, next) => {
+    const emailVerif = RegExp("([A-z]|[0-9])+@([A-z]|[0-9])+.[A-z]{2,3}");
+    const passwordVerif = RegExp(
+      "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$"
+    );
+
+    /*stockage d'un mot de passe crypté dans la base de données apres le req
+    const hash = bcrypt.hashSync(req.body.password, 10);
+
+    if (
+      typeof req.body.restaurantName != "string" ||
+      typeof req.body.siret != "string" ||
+      typeof req.body.phone != "string" ||
+      typeof req.body.bossName != "string" ||
+      typeof req.body.adress != "string" ||
+      typeof req.body.longitude != "string" ||
+      typeof req.body.latitude != "string" ||
+      typeof req.body.noon != "boolean" ||
+      typeof req.body.evening != "boolean" ||
+      emailVerif.test(req.body.email) == false
+    ) {
+      res.status(417);
+      res.json({
+        message:
+          "Veuillez compléter les champs obligatoires et respecter le format de saisie.",
+      });
+    } else if (passwordVerif.test(req.body.password) == false) {
+      res.status(417);
+      res.json({
+        message:
+          "Votre mot de passe doit comporter au minimum 8 caractères dont une minuscule, une majuscule, un chiffre et un caractère spécial.",
+      });
+    } else {
+      /*TEST ENVOI MAIL
+      let rand = new Array(10).fill("").reduce(
+        (accumulator) =>
+          accumulator +
+          Math.random()
+            .toString(36)
+            .replace(/[^a-z]+/g, "")
+            .substr(0, 5)
+      );
+      const newRestaurateur = new Restaurateur({
+        restaurantName: req.body.restaurantName,
+        siret: req.body.siret,
+        phone: req.body.phone,
+        email: req.body.email,
+        password: hash /*mdp hashé,
+        bossName: req.body.bossName,
+        adress: req.body.adress,
+        location: {
+          longitude: req.body.longitude,
+          latitude: req.body.latitude,
+        },
+        serviceNumber: { noon: req.body.noon, evening: req.body.evening },
+        logo: req.body.logo,
+        confirmed: false,
+        verificationId: rand,
+      });
+      newRestaurateur.save((err) => {
+        if (err) {
+          console.log(err);
+          res.json({
+            message:
+              "L'e-mail saisi est déja lié à un compte. Veuillez vous connecter ou saisir une autre adresse mail.",
+          });
+        } else {
+          res.json({
+            message: "Votre inscription a bien été prise en compte. Merci.",
+          });
+        }
+      });
+      let transporter = nodemailer.createTransport({
+        service: "gmail",
+        auth: {
+          user: process.env.EMAIL || "tiptotest@gmail.com",
+          pass: process.env.PASSWORD || "!TTTmdp51!",
+        },
+      });
+
+      link = "http://localhost:3000/restaurateur/verify?id=" + rand;
+      let mailOptions = {
+        from: "tiptotest@gmail.com",
+        to: req.body.email,
+        subject: "Nodemailer - Test",
+        html: "Wooohooo it works!!:<a href=" + link + ">Clique</a>",
+      };
+
+      transporter.sendMail(mailOptions, (err, data) => {
+        if (err) {
+          return console.log("Error occurs");
+        }
+        return console.log("Email sent!!!");
+      });
+    }
+  },
+
+  verify: (req, res, next) => {
+    if (!req.query.id) {
+      res.status(404).json({ message: "Not found" });
+      return;
+    }
+    Restaurateur.updateOne(
+      { verificationId: req.query.id },
+      { $set: { confirmed: true, verificationId: null } },
+      (err, result) => {
+        if (err) {
+          res.status(417).json({ message: "erreur" });
+          return;
+        }
+        if (result.nModified == 0) {
+          res.status(404).json({ message: "Not found" });
+          return;
+        }
+        res.json({ message: "Email is been Successfully verified" });
+        console.log(result);
+      }
+    );
+  },
+
+  /*Récupération du profil du restaurateur connecté
+  getProfil: (req, res) => {
+    res.json(req.user);
+    /*permet de ne pas afficher le password crypté
+  };
+*/
+
+
+verify: (req, res, next) => {
+    if (!req.query.id) {
+      res.status(404).json({ message: "Not Found" });
+      return;
+    }
+    Client.updateOne(
+      { verificationId: req.query.id },
+      { $set: { confirmed: true, verificationId: null } },
+      (err, result) => {
+        if (err) {
+          res.status(417).json({ message: "erreur" });
+          return;
+        }
+        if (result.nModified == 0) {
+          res.status(404).json({ message: "Not found" });
+          return;
+        }
+        res.json({
+          message:
+            "La vérification de votre adresse e-mail a été effectué avec succes. Merci.",
+        });
+        console.log(result);
+      }
+    );
+  },

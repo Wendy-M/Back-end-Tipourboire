@@ -1,0 +1,27 @@
+
+1. lien vers une page de Reset
+      -> front : champ dans lequel taper e-mail
+      -> champ : type compte (serveur, restaurateur, client)
+      -> bouton envoi
+
+      FRONT fetch vers BACK
+
+2. création d'un reset link (token de réinitialisation aléatoire) avec crypto
+
+3. Envoi e-mail
+    -> lien de reset "http://site/reset?token=2ghdybdd5vdgdk"
+
+    LIEN envoi vers page FRONT
+
+4. Deux input 
+    -> email
+    -> new password
+    -> bouton validation
+
+    Envoi données vers BACK
+
+5. Trois données recus sur le BACK :
+    -> email
+    -> new password
+    -> token
+Grace à email et token une requête peut être envoyé à la base de données pour trouver le user et actualisé le nouveau mtp hashé .*/

@@ -1,0 +1,110 @@
+/*__________________________________________________*/
+/* Incription client             
+/****************************************************/
+
+POST "/profil/inscription"
+--
+Request body: {
+    gender:  String,obligatoire
+  lastname: String,obligatoire
+  firstname: String,obligatoire
+  password: String,obligatoire
+  age: String,facultatif
+  adress: String,ville ou CP obligatoire
+  phone: Number,facultatif
+  email: String,obligatoire
+}
+--
+Response body: {
+    "Merci pour votre inscription"
+}      
+
+/*__________________________________________________*/
+/* Modification compte client           
+/****************************************************/
+
+PUT "/profil/edit"
+--
+Request body: {
+ gender:  String,obligatoire
+  lastname: String,obligatoire
+  firstname: String,obligatoire
+  password: String,obligatoire
+  age: String,facultatif 
+  adress: String,ville ou CP obligatoire
+  phone: Number,facultatif
+  email: String,obligatoire
+}
+--
+Response body: {
+    "Vos modifications ont bien été enregistrées"
+}
+
+/****************************************************/
+
+/****************************************************/
+/* /                              
+/*__________________________________________________*/
+/* Se connecter sur le compte       
+/****************************************************/
+
+POST "/profil/login"
+--
+Request body: {
+    email : "String"
+    password : "String"
+}
+--
+Response body: {
+    "Bonjour "firstname""
+}
+                           
+/*__________________________________________________*/
+/* Supprimer son compte    
+/****************************************************/
+
+DELETE "/profil/delete"
+--
+Request body: {
+    click sur le bouton supprimer
+}
+--
+Response body: {
+    "Votre compte a bien été supprimé"
+}
+
+/****************************************************/
+
+Schémas BDD
+
+const mongoose = require("mongoose");
+const uniqueValidator = require("mongoose-unique-validator");
+
+const clientSchema = new mongoose.Schema({
+  gender: String,
+  lastname: String,
+  firstname: String,
+  password: String,
+  age: String,
+  adress: String,
+  phone: Number,
+  email: String,
+  Historique: [
+    {
+      Montant: Number,
+      date: Date,
+      waiter: String,
+      general: String,
+      RestaurantName: String,
+    },
+  ],
+  favoris: [{ restaurantName: String, link: String }],
+});
+
+ClientSchema.plugin(uniqueValidator);
+
+module.exports = mongoose.model("Client", clientSchema);
+
+
+
+
