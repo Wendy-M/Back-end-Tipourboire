@@ -7,7 +7,7 @@ const cors = {
     handle: (req, res, next) => {
       res.header(
         "Access-Control-Allow-Origin",
-        process.env.ORIGIN || "https://client.osc-fr1.scalingo.io/"
+        process.env.ORIGIN || "https://client.osc-fr1.scalingo.io/" || "https://restaurant.osc-fr1.scalingo.io/"|| "https://serveur.osc-fr1.scalingo.io/"
       );
       res.header(
         "Access-Control-Allow-Headers",
