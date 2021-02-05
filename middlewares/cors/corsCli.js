@@ -3,11 +3,13 @@
  * Handles CORS requests
  */
 
+ let ALLOWORIGIN= ["https://client.osc-fr1.scalingo.io/" , "https://restaurant.osc-fr1.scalingo.io/", "https://serveur.osc-fr1.scalingo.io/"]
 const cors = {
     handle: (req, res, next) => {
       res.header(
-        "Access-Control-Allow-Origin",
-        process.env.ORIGIN || "https://client.osc-fr1.scalingo.io/" || "https://restaurant.osc-fr1.scalingo.io/"|| "https://serveur.osc-fr1.scalingo.io/"
+        "Access-Control-Allow-Origin", ALLOWORIGIN
+        
+   
       );
       res.header(
         "Access-Control-Allow-Headers",
