@@ -179,7 +179,7 @@ const restaurateurController = {
                 return;
               }
               res.redirect(
-                "http://localhost:3000/" //'<header  style=" background-color:#f4a521"> <h1 style="color: white; font-size: 30px; text-align:center; padding:10px; font-family:arial">TIPOURBOIRE</h1></header> <p style=" padding:15px; text-align:center; font-size:18px; font-family:arial">Vous êtes maintenant inscrit à TiPourBoire !<br/> Veuillez vous connecter pour vous abonner. <br/> <br/>  <a style=" margin-top:15px; text-decoration:none; color: #f4a521; font-weight:bold; font-size:23px; font-family:arial" href=http://localhost:3000/connexionAbo>S\'abonner</a> </p>  <footer style="background-color:#f4a521; padding:10px "></footer>'
+                "https://restaurant.osc-fr1.scalingo.io/" //'<header  style=" background-color:#f4a521"> <h1 style="color: white; font-size: 30px; text-align:center; padding:10px; font-family:arial">TIPOURBOIRE</h1></header> <p style=" padding:15px; text-align:center; font-size:18px; font-family:arial">Vous êtes maintenant inscrit à TiPourBoire !<br/> Veuillez vous connecter pour vous abonner. <br/> <br/>  <a style=" margin-top:15px; text-decoration:none; color: #f4a521; font-weight:bold; font-size:23px; font-family:arial" href=https://restaurant.osc-fr1.scalingo.io/connexionAbo>S\'abonner</a> </p>  <footer style="background-color:#f4a521; padding:10px "></footer>'
               );
             });
           }
@@ -612,7 +612,7 @@ const restaurateurController = {
               return;
             }
 
-            res.redirect("http://localhost:3000/connexion");
+            res.redirect("https://restaurant.osc-fr1.scalingo.io/connexion");
             console.log(result);
           }
         );
@@ -711,7 +711,7 @@ const restaurateurController = {
               }
             );
             console.log(user.mangoID);
-            res.redirect("http://localhost:3000/connexion");
+            res.redirect("https://restaurant.osc-fr1.scalingo.io/connexion");
           }
         );
       }
@@ -1002,7 +1002,7 @@ const restaurateurController = {
               return;
             }
 
-            res.redirect("http://localhost:3000/passwordRenew");
+            res.redirect("https://restaurant.osc-fr1.scalingo.io/passwordRenew");
           }
         );
       }

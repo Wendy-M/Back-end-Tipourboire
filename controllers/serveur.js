@@ -148,7 +148,7 @@ const serveurController = {
               });
 
             /* Réponse */
-            res.redirect("http://localhost:3000/connexion");
+            res.redirect("https://serveur.osc-fr1.scalingo.io/connexion");
           });
         });
     });
@@ -501,7 +501,7 @@ const serveurController = {
                 console.log(err);
                 res.json({ message: "une erreur s'est produite" });
               } else {
-                res.redirect("http://localhost:3000/monprofil");
+                res.redirect("https://serveur.osc-fr1.scalingo.io/monprofil");
               }
             }
           );
@@ -1129,7 +1129,7 @@ const serveurController = {
               return;
             }
 
-            res.redirect("http://localhost:3000/passwordRenew");
+            res.redirect("https://serveur.osc-fr1.scalingo.io/passwordRenew");
           }
         );
       }

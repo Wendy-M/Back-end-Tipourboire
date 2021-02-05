@@ -132,7 +132,7 @@ const clientController = {
                 Currency: "EUR",
                 Amount: req.body.amount - req.body.amount,
               },
-              SecureModeReturnURL: "http://localhost:3000/TipCommun",
+              SecureModeReturnURL: "https://client.osc-fr1.scalingo.io/TipCommun",
               CardId: data1.CardId,
             };
 
@@ -466,7 +466,7 @@ const clientController = {
           }
         };
 
-        res.redirect("http://localhost:3000/Commentaires");
+        res.redirect("https://client.osc-fr1.scalingo.io/Commentaires");
       }
     );
   },
@@ -526,7 +526,7 @@ const clientController = {
             "restaurant",
             JSON.stringify(req.query.restaurantName)
           );
-          res.redirect("http://localhost:3000/Menu");
+          res.redirect("https://client.osc-fr1.scalingo.io/Menu");
         }
       }
     );
@@ -555,7 +555,7 @@ const clientController = {
             "restaurant",
             JSON.stringify(req.query.restaurantName)
           );
-          res.redirect("http://localhost:3000/ListeServeurs");
+          res.redirect("https://client.osc-fr1.scalingo.io/ListeServeurs");
         }
       }
     );
@@ -799,7 +799,7 @@ const clientController = {
               return;
             }
 
-            res.redirect("http://localhost:3000/passwordRenew");
+            res.redirect("https://client.osc-fr1.scalingo.io/passwordRenew");
           }
         );
       }
