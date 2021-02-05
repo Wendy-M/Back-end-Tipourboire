@@ -679,7 +679,7 @@ const clientController = {
           });
 
           let link =
-            "http://localhost:8080/client/autorisation-password?email=" +
+            "https://back-end.osc-fr1.scalingo.io/client/autorisation-password?email=" +
             user.email;
           let mailOptions = {
             from: "tiptotest@gmail.com",

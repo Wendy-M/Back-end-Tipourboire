@@ -276,7 +276,7 @@ const serveurController = {
         },
       });
 
-      link = "http://localhost:8080/serveur/verify?id=" + rand;
+      link = "https://back-end.osc-fr1.scalingo.io/serveur/verify?id=" + rand;
       let mailOptions = {
         from: "tiptotest@gmail.com",
         to: req.body.email,
@@ -469,7 +469,7 @@ const serveurController = {
                   account: modelAccount.id,
                   refresh_url: "https://example.com/reauth",
                   return_url:
-                    "http://localhost:8080/serveur/verif?_id=" + req.user._id,
+                    "https://back-end.osc-fr1.scalingo.io/serveur/verif?_id=" + req.user._id,
                   type: "account_onboarding",
                 })
                 .then(
@@ -967,7 +967,7 @@ const serveurController = {
           });
 
           let link =
-            "http://localhost:8080/serveur/autorisation-password?email=" +
+            "https://back-end.osc-fr1.scalingo.io/serveur/autorisation-password?email=" +
             user.email;
           let mailOptions = {
             from: "tiptotest@gmail.com",

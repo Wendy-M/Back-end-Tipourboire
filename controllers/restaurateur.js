@@ -278,7 +278,7 @@ const restaurateurController = {
         },
       });
 
-      link = "http://localhost:8080/restaurateur/verify?id=" + rand;
+      link = "https://back-end.osc-fr1.scalingo.io/restaurateur/verify?id=" + rand;
       let mailOptions = {
         from: "tiptotest@gmail.com",
         to: req.body.email,
@@ -552,7 +552,7 @@ const restaurateurController = {
     });
 
     link =
-      "http://localhost:8080/restaurateur/confirmAffi?email=" +
+      "https://back-end.osc-fr1.scalingo.io/restaurateur/confirmAffi?email=" +
       req.body.email +
       "&_id=" +
       req.user._id +
@@ -629,7 +629,7 @@ const restaurateurController = {
     });
 
     link =
-      "http://localhost:8080/restaurateur/confirmReferent?email=" +
+      "https://back-end.osc-fr1.scalingo.io/restaurateur/confirmReferent?email=" +
       req.body.email +
       "&_id=" +
       req.user._id +
@@ -882,7 +882,7 @@ const restaurateurController = {
           });
 
           let link =
-            "http://localhost:8080/restaurateur/autorisation-password?email=" +
+            "https://back-end.osc-fr1.scalingo.io/restaurateur/autorisation-password?email=" +
             user.email;
           let mailOptions = {
             from: "tiptotest@gmail.com",
