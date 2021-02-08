@@ -281,7 +281,7 @@ const restaurateurController = {
       link =
         "https://back-end.osc-fr1.scalingo.io/restaurateur/verify?id=" + rand;
       let mailOptions = {
-        from: "tiptotest@gmail.com",
+        from: "contact@bonnie-and-cloud.com",
         to: req.body.email,
         subject: "Nodemailer - Test",
         html:
