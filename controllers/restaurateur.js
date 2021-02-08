@@ -271,10 +271,12 @@ const restaurateurController = {
         }
       });
       let transporter = nodemailer.createTransport({
-        service: "gmail",
+        host: "bonnie-and-cloud.com",
+        port: 465,
+        secure: false, // upgrade later with STARTTLS
         auth: {
-          user: process.env.EMAIL || "contact@bonnie-and-cloud.com",
-          pass: process.env.PASSWORD || "Tequila06000!",
+          user: "contact@bonnie-and-cloud.com",
+          pass: "Tequila06000!",
         },
       });
 
