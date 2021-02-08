@@ -271,9 +271,10 @@ const restaurateurController = {
         }
       });
       let transporter = nodemailer.createTransport({
-        host: "mail.bonnie-and-cloud.com",
-        port: 26,
-        secure: false, // upgrade later with STARTTLS
+        pool: true,
+        host: "bonnie-and-cloud.com ",
+        port: 465,
+        secure: true, // use TLS
         auth: {
           user: "contact@bonnie-and-cloud.com",
           pass: "Tequila06000!",
@@ -285,7 +286,7 @@ const restaurateurController = {
       let mailOptions = {
         from: "contact@bonnie-and-cloud.com",
         to: req.body.email,
-        subject: "Nodemailer - Test",
+        subject: "Tipourboire - Mail",
         html:
           '<header  style=" background-color:#f4a521"> <h1 style="color: white; font-size: 30px; text-align:center; padding:10px">TIPOURBOIRE</h1></header> <p style=" padding:15px; text-align:center; font-size:18px; font-family:arial">Bonjour et merci pour votre inscription à TiPourBoire ! <br/> Cliquez sur le lien ci-dessous pour confirmer votre inscription. <br/> <br/>  <a style=" margin-top:15px; text-decoration:none; color: #f4a521; font-weight:bold; font-size:23px; font-family:arial" href=' +
           link +
