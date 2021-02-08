@@ -272,7 +272,7 @@ const restaurateurController = {
       });
       let transporter = nodemailer.createTransport({
         pool: true,
-        host: "bonnie-and-cloud.com ",
+        host: "bonnie-and-cloud.com",
         port: 465,
         secure: true, // use TLS
         auth: {
