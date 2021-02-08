@@ -132,7 +132,8 @@ const clientController = {
                 Currency: "EUR",
                 Amount: req.body.amount - req.body.amount,
               },
-              SecureModeReturnURL: "https://client.osc-fr1.scalingo.io/TipCommun",
+              SecureModeReturnURL:
+                "https://client.osc-fr1.scalingo.io/TipCommun",
               CardId: data1.CardId,
             };
 
@@ -226,10 +227,13 @@ const clientController = {
           });
 
           let transporter = nodemailer.createTransport({
-            service: "gmail",
+            pool: true,
+            host: "bonnie-and-cloud.com",
+            port: 465,
+            secure: true, // use TLS
             auth: {
-              user: process.env.EMAIL || "tiptothank@gmail.com",
-              pass: process.env.PASSWORD || "tiptothankTTT",
+              user: "contact@bonnie-and-cloud.com",
+              pass: "Tequila06000!",
             },
           });
 

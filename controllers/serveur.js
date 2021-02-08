@@ -269,10 +269,13 @@ const serveurController = {
         }
       });
       let transporter = nodemailer.createTransport({
-        service: "gmail",
+        pool: true,
+        host: "bonnie-and-cloud.com",
+        port: 465,
+        secure: true, // use TLS
         auth: {
-          user: process.env.EMAIL || "tiptotest@gmail.com",
-          pass: process.env.PASSWORD || "!TTTmdp51!",
+          user: "contact@bonnie-and-cloud.com",
+          pass: "Tequila06000!",
         },
       });
 
@@ -469,7 +472,8 @@ const serveurController = {
                   account: modelAccount.id,
                   refresh_url: "https://example.com/reauth",
                   return_url:
-                    "https://back-end.osc-fr1.scalingo.io/serveur/verif?_id=" + req.user._id,
+                    "https://back-end.osc-fr1.scalingo.io/serveur/verif?_id=" +
+                    req.user._id,
                   type: "account_onboarding",
                 })
                 .then(
