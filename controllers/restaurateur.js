@@ -273,12 +273,13 @@ const restaurateurController = {
       let transporter = nodemailer.createTransport({
         service: "gmail",
         auth: {
-          user: process.env.EMAIL || "tiptotest@gmail.com",
-          pass: process.env.PASSWORD || "!TTTmdp51!",
+          user: process.env.EMAIL || "contact@bonnie-and-cloud.com",
+          pass: process.env.PASSWORD || "Tequila06000!",
         },
       });
 
-      link = "https://back-end.osc-fr1.scalingo.io/restaurateur/verify?id=" + rand;
+      link =
+        "https://back-end.osc-fr1.scalingo.io/restaurateur/verify?id=" + rand;
       let mailOptions = {
         from: "tiptotest@gmail.com",
         to: req.body.email,
@@ -1002,7 +1003,9 @@ const restaurateurController = {
               return;
             }
 
-            res.redirect("https://restaurant.osc-fr1.scalingo.io/passwordRenew");
+            res.redirect(
+              "https://restaurant.osc-fr1.scalingo.io/passwordRenew"
+            );
           }
         );
       }
