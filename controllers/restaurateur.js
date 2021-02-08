@@ -271,8 +271,8 @@ const restaurateurController = {
         }
       });
       let transporter = nodemailer.createTransport({
-        host: "bonnie-and-cloud.com",
-        port: 465,
+        host: "mail.bonnie-and-cloud.com",
+        port: 26,
         secure: false, // upgrade later with STARTTLS
         auth: {
           user: "contact@bonnie-and-cloud.com",
