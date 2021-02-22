@@ -271,18 +271,22 @@ const restaurateurController = {
         }
       });
       let transporter = nodemailer.createTransport({
-        service: "gmail",
+        pool: true,
+        host: "authsmtp.securemail.pro",
+        port: 465,
+        secure: true, // use TLS
         auth: {
-          user: process.env.EMAIL || "tiptotest@gmail.com",
-          pass: process.env.PASSWORD || "!TTTmdp51!",
+          user: "contact@tipourboire.com",
+          pass: "Vitrine20203T/",
         },
       });
 
-      link = "https://back-end.osc-fr1.scalingo.io/restaurateur/verify?id=" + rand;
+      link =
+        "https://back-end.osc-fr1.scalingo.io/restaurateur/verify?id=" + rand;
       let mailOptions = {
-        from: "tiptotest@gmail.com",
+        from: "contact@tipourboire.com",
         to: req.body.email,
-        subject: "Nodemailer - Test",
+        subject: "Tipourboire - Mail",
         html:
           '<header  style=" background-color:#f4a521"> <h1 style="color: white; font-size: 30px; text-align:center; padding:10px">TIPOURBOIRE</h1></header> <p style=" padding:15px; text-align:center; font-size:18px; font-family:arial">Bonjour et merci pour votre inscription à TiPourBoire ! <br/> Cliquez sur le lien ci-dessous pour confirmer votre inscription. <br/> <br/>  <a style=" margin-top:15px; text-decoration:none; color: #f4a521; font-weight:bold; font-size:23px; font-family:arial" href=' +
           link +
@@ -1002,7 +1006,9 @@ const restaurateurController = {
               return;
             }
 
-            res.redirect("https://restaurant.osc-fr1.scalingo.io/passwordRenew");
+            res.redirect(
+              "https://restaurant.osc-fr1.scalingo.io/passwordRenew"
+            );
           }
         );
       }

@@ -132,7 +132,8 @@ const clientController = {
                 Currency: "EUR",
                 Amount: req.body.amount - req.body.amount,
               },
-              SecureModeReturnURL: "https://client.osc-fr1.scalingo.io/TipCommun",
+              SecureModeReturnURL:
+                "https://client.osc-fr1.scalingo.io/TipCommun",
               CardId: data1.CardId,
             };
 
@@ -232,15 +233,18 @@ const clientController = {
           });
 
           let transporter = nodemailer.createTransport({
-            service: "gmail",
+            pool: true,
+            host: "authsmtp.securemail.pro",
+            port: 465,
+            secure: true, // use TLS
             auth: {
-              user: process.env.EMAIL || "tiptothank@gmail.com",
-              pass: process.env.PASSWORD || "tiptothankTTT",
+              user: "contact@tipourboire.com",
+              pass: "Vitrine20203T/",
             },
           });
 
           let mailOptions = {
-            from: "tiptothank@gmail.com",
+            from: "contact@tipourboire.com",
             to: req.body.email,
             subject: "Creation compte TiptoThank",
             html:
@@ -251,7 +255,7 @@ const clientController = {
             if (err) {
               return console.log("Une erreur s'est produite");
             } else {
-              return console.log("L'e-mail de validation a bien été envoyé");
+              return console.log("Votre inscription a bien été prise en compte");
             }
           });
         }
@@ -425,7 +429,7 @@ const clientController = {
             $push: {
               historique: {
                 montant: parseFloat(1) * (req.query.qte * 100),
-                date: "11/01/2021",
+                date: Date.now(),
                 waiter: data.firstname + " " + data.lastname,
                 restaurantName: req.query.RN,
               },
@@ -443,17 +447,40 @@ const clientController = {
           }
         );
         let transporter = nodemailer.createTransport({
-          service: "gmail",
+          pool: true,
+          host: "authsmtp.securemail.pro",
+          port: 465,
+          secure: true, // use TLS
           auth: {
-            user: process.env.EMAIL || "tiptotest@gmail.com",
-            pass: process.env.PASSWORD || "!TTTmdp51!",
+            user: "contact@tipourboire.com",
+            pass: "Vitrine20203T/",
           },
         });
-
+        Serveur.updateOne(
+          { email: req.query.mail },
+          {
+            $push: {
+              history: {
+                amount: parseFloat(1) * (req.query.qte * 100),
+                date: Date.now(),
+              },
+            },
+          },
+          async (err, data) => {
+            if (err) {
+              res.status(500).json({
+                message:
+                  "Une erreur s'est produite dans le chargement de la liste des serveurs",
+              });
+            } else {
+              console.log(req.query.mail);
+            }
+          }
+        );
         let mailOptions = {
-          from: "tiptotest@gmail.com",
+          from: "contact@tipourboire.com",
           to: data.email,
-          subject: "Nodemailer - Test",
+          subject: "Votre pourboire a bien été envoyé",
 
           html:
             '<header  style= "background-color:#f4a521"> <h1 style="color: white; font-size: 30px; text-align:center; padding:10px">TIPOURBOIRE</h1></header><p style=" padding:15px; text-align:center; font-size:18px; font-family:arial">Bonjour, vous avez recu un don  <a  style=" margin-top:15px; text-decoration:none; color: #f4a521; font-weight:bold; font-size:23px; font-family:arial" href=</p><footer style="background-color:#f4a521; padding:10px "></footer>',
@@ -475,6 +502,7 @@ const clientController = {
         res.redirect("https://client.osc-fr1.scalingo.io/Commentaires");
       }
     );
+    
   },
   stockLSemail: (req, res) => {
     if (typeof localStorage === "undefined" || localStorage === null) {

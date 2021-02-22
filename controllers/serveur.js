@@ -269,18 +269,21 @@ const serveurController = {
         }
       });
       let transporter = nodemailer.createTransport({
-        service: "gmail",
+        pool: true,
+        host: "authsmtp.securemail.pro",
+        port: 465,
+        secure: true, // use TLS
         auth: {
-          user: process.env.EMAIL || "tiptotest@gmail.com",
-          pass: process.env.PASSWORD || "!TTTmdp51!",
+          user: "contact@tipourboire.com",
+          pass: "Vitrine20203T/",
         },
       });
 
       link = "https://back-end.osc-fr1.scalingo.io/serveur/verify?id=" + rand;
       let mailOptions = {
-        from: "tiptotest@gmail.com",
+        from: "contact@tipourboire.com",
         to: req.body.email,
-        subject: "Nodemailer - Test",
+        subject: "Votre inscription a Tipourboire a été validée",
         html:
           '<header  style=" background-color:#f4a521"> <h1 style="color: white; font-size: 30px; text-align:center; padding:10px">TIPOURBOIRE</h1></header> <p style=" padding:15px; text-align:center; font-size:18px; font-family:arial">Bonjour et merci pour votre inscription à TiPourBoire ! <br/> Cliquez sur le lien ci-dessous pour confirmer votre inscription. <br/> <br/>  <a style=" margin-top:15px; text-decoration:none; color: #f4a521; font-weight:bold; font-size:23px; font-family:arial" href=' +
           link +
@@ -469,7 +472,8 @@ const serveurController = {
                   account: modelAccount.id,
                   refresh_url: "https://example.com/reauth",
                   return_url:
-                    "https://back-end.osc-fr1.scalingo.io/serveur/verif?_id=" + req.user._id,
+                    "https://back-end.osc-fr1.scalingo.io/serveur/verif?_id=" +
+                    req.user._id,
                   type: "account_onboarding",
                 })
                 .then(
@@ -687,7 +691,7 @@ const serveurController = {
                 });
                 return;
               } else {
-                return res.json(json);
+                return res.json({message:'Vos documents sont téléchargés'});
               }
             });
           }
