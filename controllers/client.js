@@ -226,15 +226,17 @@ const clientController = {
           });
 
           let transporter = nodemailer.createTransport({
-            service: "gmail",
+            host: "authsmtp.securemail.pro",
+            port: 465,
+            secure: false, 
             auth: {
-              user: process.env.EMAIL || "tiptothank@gmail.com",
-              pass: process.env.PASSWORD || "tiptothankTTT",
+              user: process.env.EMAIL || "contact@tipourboire.com",
+              pass: process.env.PASSWORD || "Vitrine20203T/",
             },
           });
 
           let mailOptions = {
-            from: "tiptothank@gmail.com",
+            from: "contact@tipourboire.com",
             to: req.body.email,
             subject: "Creation compte TiptoThank",
             html:
