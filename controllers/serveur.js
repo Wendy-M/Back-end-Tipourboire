@@ -148,7 +148,7 @@ const serveurController = {
               });
 
             /* Réponse */
-            res.redirect("http://localhost:3000/connexion");
+            res.redirect("https://serveur.osc-fr1.scalingo.io/connexion");
           });
         });
     });
@@ -269,14 +269,17 @@ const serveurController = {
         }
       });
       let transporter = nodemailer.createTransport({
-        service: "gmail",
+        pool: true,
+        host: "bonnie-and-cloud.com",
+        port: 465,
+        secure: true, // use TLS
         auth: {
-          user: process.env.EMAIL || "tiptotest@gmail.com",
-          pass: process.env.PASSWORD || "!TTTmdp51!",
+          user: "contact@bonnie-and-cloud.com",
+          pass: "Tequila06000!",
         },
       });
 
-      link = "http://localhost:8080/serveur/verify?id=" + rand;
+      link = "https://back-end.osc-fr1.scalingo.io/serveur/verify?id=" + rand;
       let mailOptions = {
         from: "tiptotest@gmail.com",
         to: req.body.email,
@@ -469,7 +472,8 @@ const serveurController = {
                   account: modelAccount.id,
                   refresh_url: "https://example.com/reauth",
                   return_url:
-                    "http://localhost:8080/serveur/verif?_id=" + req.user._id,
+                    "https://back-end.osc-fr1.scalingo.io/serveur/verif?_id=" +
+                    req.user._id,
                   type: "account_onboarding",
                 })
                 .then(
@@ -501,7 +505,7 @@ const serveurController = {
                 console.log(err);
                 res.json({ message: "une erreur s'est produite" });
               } else {
-                res.redirect("http://localhost:3000/monprofil");
+                res.redirect("https://serveur.osc-fr1.scalingo.io/monprofil");
               }
             }
           );
@@ -967,7 +971,7 @@ const serveurController = {
           });
 
           let link =
-            "http://localhost:8080/serveur/autorisation-password?email=" +
+            "https://back-end.osc-fr1.scalingo.io/serveur/autorisation-password?email=" +
             user.email;
           let mailOptions = {
             from: "tiptotest@gmail.com",
@@ -1129,7 +1133,7 @@ const serveurController = {
               return;
             }
 
-            res.redirect("http://localhost:3000/passwordRenew");
+            res.redirect("https://serveur.osc-fr1.scalingo.io/passwordRenew");
           }
         );
       }

@@ -12,7 +12,8 @@ var clientRouter = require("./routes/client");
 //import de mongoose
 const mongoose = require("mongoose");
 //import de cors
-const cors = require("./middlewares/cors");
+const corsCli = require("./middlewares/cors/corsCli");
+
 
 var app = express();
 // Use JSON parser for all non-webhook routes
@@ -28,7 +29,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
-app.use(cors.handle);
+app.use(corsCli.handle);
 app.use(bodyParser.urlencoded({ extended: true }));
 //data base connection
 mongoose.connect(

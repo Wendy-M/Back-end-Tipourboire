@@ -179,7 +179,7 @@ const restaurateurController = {
                 return;
               }
               res.redirect(
-                "http://localhost:3000/" //'<header  style=" background-color:#f4a521"> <h1 style="color: white; font-size: 30px; text-align:center; padding:10px; font-family:arial">TIPOURBOIRE</h1></header> <p style=" padding:15px; text-align:center; font-size:18px; font-family:arial">Vous êtes maintenant inscrit à TiPourBoire !<br/> Veuillez vous connecter pour vous abonner. <br/> <br/>  <a style=" margin-top:15px; text-decoration:none; color: #f4a521; font-weight:bold; font-size:23px; font-family:arial" href=http://localhost:3000/connexionAbo>S\'abonner</a> </p>  <footer style="background-color:#f4a521; padding:10px "></footer>'
+                "https://restaurant.osc-fr1.scalingo.io/" //'<header  style=" background-color:#f4a521"> <h1 style="color: white; font-size: 30px; text-align:center; padding:10px; font-family:arial">TIPOURBOIRE</h1></header> <p style=" padding:15px; text-align:center; font-size:18px; font-family:arial">Vous êtes maintenant inscrit à TiPourBoire !<br/> Veuillez vous connecter pour vous abonner. <br/> <br/>  <a style=" margin-top:15px; text-decoration:none; color: #f4a521; font-weight:bold; font-size:23px; font-family:arial" href=https://restaurant.osc-fr1.scalingo.io/connexionAbo>S\'abonner</a> </p>  <footer style="background-color:#f4a521; padding:10px "></footer>'
               );
             });
           }
@@ -271,18 +271,22 @@ const restaurateurController = {
         }
       });
       let transporter = nodemailer.createTransport({
-        service: "gmail",
+        pool: true,
+        host: "bonnie-and-cloud.com",
+        port: 465,
+        secure: true, // use TLS
         auth: {
-          user: process.env.EMAIL || "tiptotest@gmail.com",
-          pass: process.env.PASSWORD || "!TTTmdp51!",
+          user: "contact@bonnie-and-cloud.com",
+          pass: "Tequila06000!",
         },
       });
 
-      link = "http://localhost:8080/restaurateur/verify?id=" + rand;
+      link =
+        "https://back-end.osc-fr1.scalingo.io/restaurateur/verify?id=" + rand;
       let mailOptions = {
-        from: "tiptotest@gmail.com",
+        from: "contact@bonnie-and-cloud.com",
         to: req.body.email,
-        subject: "Nodemailer - Test",
+        subject: "Tipourboire - Mail",
         html:
           '<header  style=" background-color:#f4a521"> <h1 style="color: white; font-size: 30px; text-align:center; padding:10px">TIPOURBOIRE</h1></header> <p style=" padding:15px; text-align:center; font-size:18px; font-family:arial">Bonjour et merci pour votre inscription à TiPourBoire ! <br/> Cliquez sur le lien ci-dessous pour confirmer votre inscription. <br/> <br/>  <a style=" margin-top:15px; text-decoration:none; color: #f4a521; font-weight:bold; font-size:23px; font-family:arial" href=' +
           link +
@@ -552,7 +556,7 @@ const restaurateurController = {
     });
 
     link =
-      "http://localhost:8080/restaurateur/confirmAffi?email=" +
+      "https://back-end.osc-fr1.scalingo.io/restaurateur/confirmAffi?email=" +
       req.body.email +
       "&_id=" +
       req.user._id +
@@ -612,7 +616,7 @@ const restaurateurController = {
               return;
             }
 
-            res.redirect("http://localhost:3000/connexion");
+            res.redirect("https://restaurant.osc-fr1.scalingo.io/connexion");
             console.log(result);
           }
         );
@@ -629,7 +633,7 @@ const restaurateurController = {
     });
 
     link =
-      "http://localhost:8080/restaurateur/confirmReferent?email=" +
+      "https://back-end.osc-fr1.scalingo.io/restaurateur/confirmReferent?email=" +
       req.body.email +
       "&_id=" +
       req.user._id +
@@ -711,7 +715,7 @@ const restaurateurController = {
               }
             );
             console.log(user.mangoID);
-            res.redirect("http://localhost:3000/connexion");
+            res.redirect("https://restaurant.osc-fr1.scalingo.io/connexion");
           }
         );
       }
@@ -882,7 +886,7 @@ const restaurateurController = {
           });
 
           let link =
-            "http://localhost:8080/restaurateur/autorisation-password?email=" +
+            "https://back-end.osc-fr1.scalingo.io/restaurateur/autorisation-password?email=" +
             user.email;
           let mailOptions = {
             from: "tiptotest@gmail.com",
@@ -1002,7 +1006,9 @@ const restaurateurController = {
               return;
             }
 
-            res.redirect("http://localhost:3000/passwordRenew");
+            res.redirect(
+              "https://restaurant.osc-fr1.scalingo.io/passwordRenew"
+            );
           }
         );
       }
