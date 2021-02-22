@@ -227,12 +227,13 @@ const clientController = {
           });
 
           let transporter = nodemailer.createTransport({
+            pool: true,
             host: "authsmtp.securemail.pro",
             port: 465,
-            secure: false, 
+            secure: true, // use TLS
             auth: {
-              user: process.env.EMAIL || "contact@tipourboire.com",
-              pass: process.env.PASSWORD || "Vitrine20203T/",
+              user: "contact@tipourboire.com",
+              pass: "Vitrine20203T/",
             },
           });
 
