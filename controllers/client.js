@@ -248,7 +248,7 @@ const clientController = {
             if (err) {
               return console.log("Une erreur s'est produite");
             } else {
-              return console.log("L'e-mail de validation a bien été envoyé");
+              return console.log("Votre inscription a bien été prise en compte");
             }
           });
         }

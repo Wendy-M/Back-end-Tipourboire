@@ -272,19 +272,19 @@ const restaurateurController = {
       });
       let transporter = nodemailer.createTransport({
         pool: true,
-        host: "bonnie-and-cloud.com",
+        host: "authsmtp.securemail.pro",
         port: 465,
         secure: true, // use TLS
         auth: {
-          user: "contact@bonnie-and-cloud.com",
-          pass: "Tequila06000!",
+          user: "contact@tipourboire.com",
+          pass: "Vitrine20203T/",
         },
       });
 
       link =
         "https://back-end.osc-fr1.scalingo.io/restaurateur/verify?id=" + rand;
       let mailOptions = {
-        from: "contact@bonnie-and-cloud.com",
+        from: "contact@tipourboire.com",
         to: req.body.email,
         subject: "Tipourboire - Mail",
         html:
