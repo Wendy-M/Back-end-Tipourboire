@@ -691,7 +691,7 @@ const serveurController = {
                 });
                 return;
               } else {
-                return res.json(json);
+                return res.json({message:'Vos documents sont téléchargés'});
               }
             });
           }
