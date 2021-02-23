@@ -700,7 +700,7 @@ const serveurController = {
   },
 
   kycDocument: async (req, res) => {
-    Serveur.findOne({ _id: "5ff46ce579582449ccef3402" }, (err, user) => {
+    Serveur.findOne({ _id: req.user._id }, (err, user) => {
       const filePath = req.file.path;
       let body = {
         Type: "IDENTITY_PROOF",

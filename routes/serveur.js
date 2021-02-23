@@ -59,6 +59,7 @@ router.post(
 );
 router.post(
   "/mangoKYC",
+  authentification,
   multerMango,
 
   serveurController.kycDocument
