@@ -548,10 +548,13 @@ const restaurateurController = {
 
   envoiMailAffiliation: (req, res) => {
     let transporter = nodemailer.createTransport({
-      service: "gmail",
-      auth: {
-        user: process.env.EMAIL || "tiptotest@gmail.com",
-        pass: process.env.PASSWORD || "!TTTmdp51!",
+      pool: true,
+        host: "authsmtp.securemail.pro",
+        port: 465,
+        secure: true, // use TLS
+        auth: {
+          user: "contact@tipourboire.com",
+          pass: "Vitrine20203T/",
       },
     });
 
@@ -563,9 +566,9 @@ const restaurateurController = {
       "&name=" +
       req.user.restaurantName;
     let mailOptions = {
-      from: "tiptotest@gmail.com",
+      from: "contact@tipourboire.com",
       to: req.body.email,
-      subject: "Nodemailer - Test",
+      subject: "Votre demande d'affiliation",
 
       html:
         '<header  style= "background-color:#f4a521"> <h1 style="color: white; font-size: 30px; text-align:center; padding:10px">TIPOURBOIRE</h1></header><p style=" padding:15px; text-align:center; font-size:18px; font-family:arial">Bonjour, le restaurant ' +
@@ -625,10 +628,13 @@ const restaurateurController = {
   },
   envoiMailReferent: (req, res) => {
     let transporter = nodemailer.createTransport({
-      service: "gmail",
-      auth: {
-        user: process.env.EMAIL || "tiptotest@gmail.com",
-        pass: process.env.PASSWORD || "!TTTmdp51!",
+      pool: true,
+        host: "authsmtp.securemail.pro",
+        port: 465,
+        secure: true, // use TLS
+        auth: {
+          user: "contact@tipourboire.com",
+          pass: "Vitrine20203T/",
       },
     });
 
@@ -640,9 +646,9 @@ const restaurateurController = {
       "&name=" +
       req.user.restaurantName;
     let mailOptions = {
-      from: "tiptotest@gmail.com",
+      from: "contact@tipourboire.com",
       to: req.body.email,
-      subject: "Nodemailer - Test",
+      subject: "Votre demande d'affiliation",
 
       html:
         '<header  style= "background-color:#f4a521"> <h1 style="color: white; font-size: 30px; text-align:center; padding:10px">TIPOURBOIRE</h1></header><p style=" padding:15px; text-align:center; font-size:18px; font-family:arial">Bonjour, le restaurant ' +
@@ -767,16 +773,19 @@ const restaurateurController = {
   unSubscription: (req, res) => {
     Restaurateur.findOne({ _id: req.user.id }, (err, user) => {
       let transporter = nodemailer.createTransport({
-        service: "gmail",
+        pool: true,
+        host: "authsmtp.securemail.pro",
+        port: 465,
+        secure: true, // use TLS
         auth: {
-          user: process.env.EMAIL || "tiptotest@gmail.com",
-          pass: process.env.PASSWORD || "!TTTmdp51!",
+          user: "contact@tipourboire.com",
+          pass: "Vitrine20203T/",
         },
       });
       let mailOptions = {
-        from: "tiptotest@gmail.com",
+        from: "contact@tipourboire.com",
         to: user.email,
-        subject: "Nodemailer - Test",
+        subject: "Résiliation affiliation",
         html:
           '<header  style=" background-color:#f4a521"> <h1 style="color: white; font-size: 30px; text-align:center; padding:10px">TIPOURBOIRE</h1></header> <p style=" padding:15px; text-align:center; font-size:18px; font-family:arial">Bonjour, votre demande de désabonnement a bien été prise en compte. <br/> Votre abonnement sera définitivement résilié à la fin de votre mensualité. <br/> A bientôt</p>  <footer style="background-color:#f4a521; padding:10px "></footer>',
       };
@@ -789,17 +798,20 @@ const restaurateurController = {
       });
       Serveur.find({ "restaurantName._id": user._id }, (error, serveurs) => {
         let transporter = nodemailer.createTransport({
-          service: "gmail",
-          auth: {
-            user: process.env.EMAIL || "tiptotest@gmail.com",
-            pass: process.env.PASSWORD || "!TTTmdp51!",
+          pool: true,
+        host: "authsmtp.securemail.pro",
+        port: 465,
+        secure: true, // use TLS
+        auth: {
+          user: "contact@tipourboire.com",
+          pass: "Vitrine20203T/",
           },
         });
         let maillist = [serveurs.email];
         let mailOptions = {
-          from: "tiptotest@gmail.com",
+          from: "contact@tipourboire.com",
           to: maillist,
-          subject: "Nodemailer - Test",
+          subject: "Désabonnement affiliation",
           html:
             '<header  style=" background-color:#f4a521"> <h1 style="color: white; font-size: 30px; text-align:center; padding:10px">TIPOURBOIRE</h1></header> <p style=" padding:15px; text-align:center; font-size:18px; font-family:arial">Bonjour, le restaurant ' +
             user.restaurantName.name +
@@ -878,10 +890,13 @@ const restaurateurController = {
         });
         Restaurateur.findOne({ email: email }, (error, user) => {
           let transporter = nodemailer.createTransport({
-            service: "gmail",
+            pool: true,
+            host: "authsmtp.securemail.pro",
+            port: 465,
+            secure: true, // use TLS
             auth: {
-              user: process.env.EMAIL || "tiptotest@gmail.com",
-              pass: process.env.PASSWORD || "!TTTmdp51!",
+              user: "contact@tipourboire.com",
+              pass: "Vitrine20203T/",
             },
           });
 
@@ -889,9 +904,9 @@ const restaurateurController = {
             "https://back-end.osc-fr1.scalingo.io/restaurateur/autorisation-password?email=" +
             user.email;
           let mailOptions = {
-            from: "tiptotest@gmail.com",
+            from: "contact@tipourboire.com",
             to: req.body.email,
-            subject: "Nodemailer - Test",
+            subject: "Récupération de votre mot de passe",
             html:
               '<header  style=" background-color:#f4a521"> <h1 style="color: white; font-size: 30px; text-align:center; padding:10px">TIPOURBOIRE</h1></header> <p style=" padding:15px; text-align:center; font-size:18px; font-family:arial">Vous avez demandé la modification de votre mot de passe. <br/> Cliquez sur le lien ci-dessous pour confirmer votre demande <br/> <br/>  <a style=" margin-top:15px; text-decoration:none; color: #f4a521; font-weight:bold; font-size:23px; font-family:arial" href=' +
               link +
