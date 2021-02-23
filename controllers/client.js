@@ -152,7 +152,13 @@ const clientController = {
               .then((response2) => {
                 return response2.json();
               })
-              .then((data2) => {
+              .then((data2,err) => {
+                if (err) {
+                  res.status(500).json({
+                    message:
+                      "Une erreur c'est produite, veuillez réessayer."
+                  });return 
+                }
                 res.json(data2);
               });
           });
