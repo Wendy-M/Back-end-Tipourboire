@@ -894,7 +894,7 @@ const restaurateurController = {
           let mailOptions = {
             from: "contact@tipourboire.com",
             to: req.body.email,
-            subject: "Récupértion de votre mot de passe",
+            subject: "Récupération de votre mot de passe",
             html:
               '<header  style=" background-color:#f4a521"> <h1 style="color: white; font-size: 30px; text-align:center; padding:10px">TIPOURBOIRE</h1></header> <p style=" padding:15px; text-align:center; font-size:18px; font-family:arial">Vous avez demandé la modification de votre mot de passe. <br/> Cliquez sur le lien ci-dessous pour confirmer votre demande <br/> <br/>  <a style=" margin-top:15px; text-decoration:none; color: #f4a521; font-weight:bold; font-size:23px; font-family:arial" href=' +
               link +
