@@ -148,7 +148,7 @@ const serveurController = {
               });
 
             /* Réponse */
-            res.redirect("https://serveur.osc-fr1.scalingo.io/connexion");
+            res.redirect("https://serveur.osc-fr1.scalingo.io/");
           });
         });
     });
@@ -691,7 +691,7 @@ const serveurController = {
                 });
                 return;
               } else {
-                return res.json({message:'Vos documents sont téléchargés'});
+                return res.json({ message: "Vos documents sont téléchargés" });
               }
             });
           }
