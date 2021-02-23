@@ -285,7 +285,7 @@ const serveurController = {
         to: req.body.email,
         subject: "Votre inscription a Tipourboire a été validée",
         html:
-          '<header  style=" background-color:#f4a521"> <h1 style="color: white; font-size: 30px; text-align:center; padding:10px">TIPOURBOIRE</h1></header> <p style=" padding:15px; text-align:center; font-size:18px; font-family:arial">Bonjour et merci pour votre inscription à TiPourBoire ! <br/> Cliquez sur le lien ci-dessous pour confirmer votre inscription. Si vous voulez percevoir vos pourboires, veuillez finir les étapes de votre inscription dans mes pourboires indivuels et/ou mes pourboires collectifs <br/> <br/>  <a style=" margin-top:15px; text-decoration:none; color: #f4a521; font-weight:bold; font-size:23px; font-family:arial" href=' +
+          '<header  style=" background-color:#f4a521"> <h1 style="color: white; font-size: 30px; text-align:center; padding:10px">TIPOURBOIRE</h1></header> <p style=" padding:15px; text-align:center; font-size:18px; font-family:arial">Bonjour et merci pour votre inscription à Tipourboire ! <br/> Cliquez sur le lien ci-dessous pour confirmer votre inscription. Si vous voulez percevoir vos pourboires, veuillez finir les étapes de votre inscription dans mes pourboires indivuels et/ou mes pourboires collectifs <br/> <br/>  <a style=" margin-top:15px; text-decoration:none; color: #f4a521; font-weight:bold; font-size:23px; font-family:arial" href=' +
           link +
           '>Confirmer</a> </p>  <footer style="background-color:#f4a521; padding:10px "></footer>',
       };
