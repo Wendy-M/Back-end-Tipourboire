@@ -549,12 +549,12 @@ const restaurateurController = {
   envoiMailAffiliation: (req, res) => {
     let transporter = nodemailer.createTransport({
       pool: true,
-        host: "authsmtp.securemail.pro",
-        port: 465,
-        secure: true, // use TLS
-        auth: {
-          user: "contact@tipourboire.com",
-          pass: "Vitrine20203T/",
+      host: "authsmtp.securemail.pro",
+      port: 465,
+      secure: true, // use TLS
+      auth: {
+        user: "contact@tipourboire.com",
+        pass: "Vitrine20203T/",
       },
     });
 
@@ -619,7 +619,7 @@ const restaurateurController = {
               return;
             }
 
-            res.redirect("https://restaurant.osc-fr1.scalingo.io/connexion");
+            res.redirect("https://serveur.osc-fr1.scalingo.io/");
             console.log(result);
           }
         );
@@ -629,12 +629,12 @@ const restaurateurController = {
   envoiMailReferent: (req, res) => {
     let transporter = nodemailer.createTransport({
       pool: true,
-        host: "authsmtp.securemail.pro",
-        port: 465,
-        secure: true, // use TLS
-        auth: {
-          user: "contact@tipourboire.com",
-          pass: "Vitrine20203T/",
+      host: "authsmtp.securemail.pro",
+      port: 465,
+      secure: true, // use TLS
+      auth: {
+        user: "contact@tipourboire.com",
+        pass: "Vitrine20203T/",
       },
     });
 
@@ -721,7 +721,7 @@ const restaurateurController = {
               }
             );
             console.log(user.mangoID);
-            res.redirect("https://restaurant.osc-fr1.scalingo.io/connexion");
+            res.redirect("https://serveur.osc-fr1.scalingo.io/");
           }
         );
       }
@@ -799,12 +799,12 @@ const restaurateurController = {
       Serveur.find({ "restaurantName._id": user._id }, (error, serveurs) => {
         let transporter = nodemailer.createTransport({
           pool: true,
-        host: "authsmtp.securemail.pro",
-        port: 465,
-        secure: true, // use TLS
-        auth: {
-          user: "contact@tipourboire.com",
-          pass: "Vitrine20203T/",
+          host: "authsmtp.securemail.pro",
+          port: 465,
+          secure: true, // use TLS
+          auth: {
+            user: "contact@tipourboire.com",
+            pass: "Vitrine20203T/",
           },
         });
         let maillist = [serveurs.email];

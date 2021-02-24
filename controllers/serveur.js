@@ -771,7 +771,10 @@ const serveurController = {
                 if (response.status != 200) {
                   res.json({ message: "An error has occured" });
                 } else {
-                  res.json({ message: "success" });
+                  res.json({
+                    message:
+                      "Votre document à bien été envoyé une réponse vous sera fournis dans les 24 heures.",
+                  });
                 }
               });
             })
