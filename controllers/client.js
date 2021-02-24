@@ -452,7 +452,7 @@ const clientController = {
             $push: {
               history: {
                 amount: parseFloat(1) * (req.query.qte * 100),
-                date: Date.now(),
+                date: new Date().toISOString(),
               },
             },
           },
