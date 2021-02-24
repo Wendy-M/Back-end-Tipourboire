@@ -152,12 +152,12 @@ const clientController = {
               .then((response2) => {
                 return response2.json();
               })
-              .then((data2,err) => {
+              .then((data2, err) => {
                 if (err) {
                   res.status(500).json({
-                    message:
-                      "Une erreur c'est produite, veuillez réessayer."
-                  });return 
+                    message: "Une erreur c'est produite, veuillez réessayer.",
+                  });
+                  return;
                 }
                 res.json(data2);
               });
@@ -255,7 +255,9 @@ const clientController = {
             if (err) {
               return console.log("Une erreur s'est produite");
             } else {
-              return console.log("Votre inscription a bien été prise en compte");
+              return console.log(
+                "Votre inscription a bien été prise en compte"
+              );
             }
           });
         }
@@ -442,7 +444,7 @@ const clientController = {
                   "Une erreur s'est produite dans le chargement de la liste des serveurs",
               });
             } else {
-              console.log(req.query.mail);
+              console.log(data.mail);
             }
           }
         );
@@ -457,7 +459,7 @@ const clientController = {
           },
         });
         Serveur.updateOne(
-          { email: req.query.mail },
+          { email: data.email },
           {
             $push: {
               history: {
@@ -502,7 +504,6 @@ const clientController = {
         res.redirect("https://client.osc-fr1.scalingo.io/Commentaires");
       }
     );
-    
   },
   stockLSemail: (req, res) => {
     if (typeof localStorage === "undefined" || localStorage === null) {
