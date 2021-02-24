@@ -446,16 +446,6 @@ const clientController = {
             }
           }
         );
-        let transporter = nodemailer.createTransport({
-          pool: true,
-          host: "authsmtp.securemail.pro",
-          port: 465,
-          secure: true, // use TLS
-          auth: {
-            user: "contact@tipourboire.com",
-            pass: "Vitrine20203T/",
-          },
-        });
         Serveur.updateOne(
           { email: req.query.mail },
           {
@@ -477,6 +467,17 @@ const clientController = {
             }
           }
         );
+        let transporter = nodemailer.createTransport({
+          pool: true,
+          host: "authsmtp.securemail.pro",
+          port: 465,
+          secure: true, // use TLS
+          auth: {
+            user: "contact@tipourboire.com",
+            pass: "Vitrine20203T/",
+          },
+        });
+        
         let mailOptions = {
           from: "contact@tipourboire.com",
           to: data.email,
