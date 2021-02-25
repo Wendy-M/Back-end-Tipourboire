@@ -275,7 +275,7 @@ const serveurController = {
         secure: true, // use TLS
         auth: {
           user: "contact@tipourboire.com",
-          pass: "Vitrine20203T/",
+          pass: "Tipourboire06!",
         },
       });
 
@@ -972,7 +972,7 @@ const serveurController = {
             secure: true, // use TLS
             auth: {
               user: "contact@tipourboire.com",
-              pass: "Vitrine20203T/",
+              pass: "Tipourboire06!",
             },
           });
 

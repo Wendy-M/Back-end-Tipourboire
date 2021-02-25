@@ -277,7 +277,7 @@ const restaurateurController = {
         secure: true, // use TLS
         auth: {
           user: "contact@tipourboire.com",
-          pass: "Vitrine20203T/",
+          pass: "Tipourboire06!",
         },
       });
 
@@ -554,7 +554,7 @@ const restaurateurController = {
       secure: true, // use TLS
       auth: {
         user: "contact@tipourboire.com",
-        pass: "Vitrine20203T/",
+        pass: "Tipourboire06!",
       },
     });
 
@@ -634,7 +634,7 @@ const restaurateurController = {
       secure: true, // use TLS
       auth: {
         user: "contact@tipourboire.com",
-        pass: "Vitrine20203T/",
+        pass: "Tipourboire06!",
       },
     });
 
@@ -779,7 +779,7 @@ const restaurateurController = {
         secure: true, // use TLS
         auth: {
           user: "contact@tipourboire.com",
-          pass: "Vitrine20203T/",
+          pass: "Tipourboire06!",
         },
       });
       let mailOptions = {
@@ -804,7 +804,7 @@ const restaurateurController = {
           secure: true, // use TLS
           auth: {
             user: "contact@tipourboire.com",
-            pass: "Vitrine20203T/",
+            pass: "Tipourboire06!",
           },
         });
         let maillist = [serveurs.email];
@@ -896,7 +896,7 @@ const restaurateurController = {
             secure: true, // use TLS
             auth: {
               user: "contact@tipourboire.com",
-              pass: "Vitrine20203T/",
+              pass: "Tipourboire06!",
             },
           });
 

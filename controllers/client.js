@@ -239,7 +239,7 @@ const clientController = {
             secure: true, // use TLS
             auth: {
               user: "contact@tipourboire.com",
-              pass: "Vitrine20203T/",
+              pass: "Tipourboire06!",
             },
           });
 
@@ -476,7 +476,7 @@ const clientController = {
           secure: true, // use TLS
           auth: {
             user: "contact@tipourboire.com",
-            pass: "Vitrine20203T/",
+            pass: "Tipourboire06!",
           },
         });
         
@@ -713,7 +713,7 @@ const clientController = {
             secure: true, // use TLS
             auth: {
               user: "contact@tipourboire.com",
-              pass: "Vitrine20203T/",
+              pass: "Tipourboire06!",
             },
           });
 
