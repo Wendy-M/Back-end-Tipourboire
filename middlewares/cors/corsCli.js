@@ -13,7 +13,7 @@ const cors = {
       let origin = req.get('origin')
       
       res.header(
-        "Access-Control-Allow-Origin", allowedOrigins.inlcudes(origin) ? origin : "null"      
+        "Access-Control-Allow-Origin", allowedOrigins.includes(origin) ? origin : "null"      
       );
       res.header(
         "Access-Control-Allow-Headers",
