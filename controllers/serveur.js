@@ -870,11 +870,7 @@ const serveurController = {
                     message: "An error has occured with MANGO users",
                   });
                   
-                  
-                  
-  
-                  
-                }
+                } 
               };
             }
           );
@@ -1110,7 +1106,6 @@ const serveurController = {
     Serveur.findOne({ _id: req.user._id }, (err, user) => {
       api.Wallets.get(user.mangoWalletReferent, (model) => {
         res.json(model.Balance.Amount);
-        res.json ({message:"l'argent a bien été transféré"})
       });
     });
   },
