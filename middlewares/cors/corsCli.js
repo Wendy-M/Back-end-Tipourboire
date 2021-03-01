@@ -6,14 +6,11 @@
  //let ALLOWORIGIN= ["https://client.osc-fr1.scalingo.io/" , "https://restaurant.osc-fr1.scalingo.io/", "https://serveur.osc-fr1.scalingo.io/"]
 const cors = {
     handle: (req, res, next) => {
-      res.header(
-        "Access-Control-Allow-Origin", "*"
-        
-   
-      );
+     
       res.header(
         "Access-Control-Allow-Headers",
-        "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+        "Origin, X-Requested-With, Content-Type, Accept, Authorization",
+        "Access-Control-Allow-Origin", "*"
       );
       res.header("Access-Control-Allow-Credentials", true);
       if (req.method === "OPTIONS") {
