@@ -840,7 +840,9 @@ const serveurController = {
                   res.status(500).json({
                     message: "An error has occured with MANGO users",
                   });
-                  return;
+                  
+                }else {
+                  res.json({message:'le montant a bien été transféré'})
                 }
               };
             }
@@ -869,6 +871,10 @@ const serveurController = {
                   res.status(500).json({
                     message: "An error has occured with MANGO users",
                   });
+                  
+                  
+                  
+  
                   return;
                 }
               };
