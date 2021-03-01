@@ -6,7 +6,7 @@
  //let ALLOWORIGIN= ["https://client.osc-fr1.scalingo.io/" , "https://restaurant.osc-fr1.scalingo.io/", "https://serveur.osc-fr1.scalingo.io/"]
 
     
-let allowedOrigins = ["https://client.osc-fr1.scalingo.io/" , "https://restaurant.osc-fr1.scalingo.io/", "https://serveur.osc fr1.scalingo.io/"]
+let allowedOrigins = "*"
 const cors = {
     handle: (req, res, next) => {
 
