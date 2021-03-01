@@ -841,8 +841,6 @@ const serveurController = {
                     message: "An error has occured with MANGO users",
                   });
                   
-                }else {
-                  res.json({message:'le montant a bien été transféré'})
                 }
               };
             }
@@ -875,8 +873,11 @@ const serveurController = {
                   
                   
   
-                  return;
-                }
+                  
+                }else {
+                  res.json({message:'le montant a bien été transféré'})
+                      
+                     }
               };
             }
           );
