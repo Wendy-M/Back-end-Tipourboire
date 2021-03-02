@@ -835,10 +835,7 @@ const serveurController = {
               Tag: "Versement du pot Commun",
             },
             (model) => {
-              
-                  res.json(model)
-                
-              ;
+              console.log('called', model)
             }
           );
         } else {
@@ -861,10 +858,15 @@ const serveurController = {
             },
             (model) => {
               (error) => {
-                
+                if (error) {
+                  res.status(500).json({
+                    message: "An error has occured with MANGO users",
+                  });
+                  
+                } else {
                   res.json(model)
                 }
-              ;
+              };
             }
           );
         }
